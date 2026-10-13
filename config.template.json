@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "run_id": null,
+  "site": {"name": null, "start_url": null, "allowed_hosts": []},
+  "source": {
+    "mode": "reuse_crawl", "crawl_file": null, "crawl_id": null,
+    "export_directory": null, "allow_new_crawl": false,
+    "crawl_config_path": null, "crawl_settings_file": null,
+    "content_crawl_config_path": null, "crawl_timestamp": null
+  },
+  "mcp": {"server_name": "screaming-frog", "url": null, "allowed_base_directory": null, "tool_schema_verified": false},
+  "checks": {"live_checks": false, "pagination": true},
+  "budget": {"max_mcp_calls": 30, "max_live_requests": 200, "max_paid_api_calls": 0, "max_preview_rows": 5, "max_preview_chars": 4000},
+  "cache": {"reuse_same_crawl_exports": true},
+  "output": {"language": "zh", "format": "xlsx", "run_root": "runs", "audit_date": null, "timezone": "Asia/Hong_Kong", "archive_raw": true},
+  "pagination": {
+    "exports": {},
+    "tracking_parameters": ["gclid", "fbclid", "msclkid"]
+  }
+}

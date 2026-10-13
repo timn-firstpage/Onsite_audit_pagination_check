@@ -1,0 +1,4 @@
+interface:
+  display_name: "Onsite Pagination Audit"
+  short_description: "Check Pagination 14.1–14.6 from Screaming Frog results"
+  default_prompt: "Use $onsite-audit-pagination with my global config and existing SF results to produce the six-check pagination report."

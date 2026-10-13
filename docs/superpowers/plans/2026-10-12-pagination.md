@@ -1,0 +1,10 @@
+# Pagination implementation
+
+The owner approved the six-row decision table and requested the skill. Work in the newly cloned empty repository; no worktree is needed to isolate pre-existing work. Implement inline. No additional discovery/approval gate or site audit is required.
+
+1. Test the CSV-to-findings boundary first: 14.1 always Human check; 14.2/14.6 shared canonical decisions, page=1 root and tracking aliases; 14.3 either next or prev counts, no N/A; 14.4 exact page=1/root matching and permanent redirects; 14.5 native near-duplicate pair membership, both Indexable and no canonicalised status. Use hand-checked CSV fixtures and run unittest before adding the engine.
+2. Implement scripts/audit.py (Python standard library). Accept global configuration plus explicit CSV role mappings. Produce findings.json, manifest.json, Checklist.csv and issues.csv under a unique shared-run/pagination directory. No website/SF calls. Header-only exports are usable empty results; parse/file/schema errors yield affected Human check, with known X taking precedence. Invalid/ambiguous source/config never becomes a clean pass.
+3. Write SKILL.md, agents/openai.yaml, config.template.json and focused references for rules, CSV mapping, shared configuration and report contract. Keep original six item names and numbering. Workbook: Checklist and conditional 14. Pagination; findings/instruction separated, no Coverage column. Provide a reusable artifact-tool report builder and tests for literal strings and conditional issue rows.
+4. Verify complete unittest suite, CLI integration, valid YAML/frontmatter and all reference links. Independently run the skill with synthetic raw evidence, then package only runtime resources under onsite-audit-pagination/. Install the validated skill in the user's discoverable skill directory. No automatic crawl, changes to siblings or website repair.
+
+Review focus: missing field versus empty value; OR rather than AND for prev/next; Canonicalised status versus nonempty self-canonical URL; exact page=1 versus page=10; explicit source wins and cumulative budgets remain unchanged.
