@@ -4,7 +4,7 @@ from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
 
 ROOT = Path(__file__).resolve().parents[1]
-FILES = ['SKILL.md', 'README.md', 'config.template.json', 'agents/openai.yaml',
+FILES = ['SKILL.md', 'README.md', 'assets/onsite-audit-cover.png', 'config.template.json', 'agents/openai.yaml',
          'references/audit-rules.md', 'references/exports.md', 'references/shared-config.md',
          'references/output-contract.md', 'scripts/audit.py', 'scripts/build_report.mjs']
 
