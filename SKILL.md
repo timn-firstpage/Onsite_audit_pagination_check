@@ -5,7 +5,7 @@ description: Use when checking onsite Pagination items 14.1–14.6 from an exist
 
 # Onsite Pagination Audit
 
-Produce `{site name}_onsite_pagination_audit_{YYYY-MM-DD}.xlsx` using the owner's six agreed checks. Read [audit rules](references/audit-rules.md) and [exports](references/exports.md). **14.1 stays Human check. View All is skipped. Provided SF rows define the complete scope for scoring**; do not add site-wide completeness gates or browser/crawl requirements to these decisions. Only actual read/schema/tool errors need error-driven Human check.
+Produce `14.1-14.6_{site name}_onsite_pagination_audit_{YYYY-MM-DD}.xlsx` using the owner's six agreed checks. Read [audit rules](references/audit-rules.md) and [exports](references/exports.md). **14.1 stays Human check. View All is skipped. Provided SF rows define the complete scope for scoring**; do not add site-wide completeness gates or browser/crawl requirements to these decisions. Only actual read/schema/tool errors need error-driven Human check.
 
 ## Shared evidence
 

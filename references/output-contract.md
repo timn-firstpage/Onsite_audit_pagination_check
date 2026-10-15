@@ -1,6 +1,6 @@
 # Workbook and findings
 
-Filename: `{site_name}_onsite_pagination_audit_{YYYY-MM-DD}.xlsx`. Sanitize invalid filename characters; preserve prior files.
+Filename: `14.1-14.6_{site_name}_onsite_pagination_audit_{YYYY-MM-DD}.xlsx`. Prefix the covered checklist range; sanitize invalid filename characters; preserve prior files.
 
 Always `Checklist`: **Item No. | Item Name | Check Result | Findings | Instruction**, six rows 14.1–14.6. Keep original item labels. No Coverage column. Findings are observations; Instruction is the next action, short and concrete. Use output.language (zh default). No-action passes use 无需处理。 / No action needed.
 

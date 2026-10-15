@@ -65,7 +65,7 @@ Skill 名称：`onsite-audit-pagination`。入口：[SKILL.md](SKILL.md)。**14.
 
 ## Excel 输出
 
-文件名：**`{site_name}_onsite_pagination_audit_{YYYY-MM-DD}.xlsx`**。日期使用明确指定值或配置时区，默认 Asia/Hong_Kong；拒绝覆盖旧报告。
+文件名：**`14.1-14.6_{site_name}_onsite_pagination_audit_{YYYY-MM-DD}.xlsx`**。前缀表示本报告覆盖的 checklist 编号范围。日期使用明确指定值或配置时区，默认 Asia/Hong_Kong；拒绝覆盖旧报告。
 
 **1. Checklist — 始终输出六项**
 

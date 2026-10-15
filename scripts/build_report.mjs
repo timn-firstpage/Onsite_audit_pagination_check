@@ -7,6 +7,12 @@ import {spawnSync} from 'node:child_process';
 
 const literal = value => /^[\s]*[=+@-]/.test(String(value)) ? "'" + String(value) : String(value);
 
+export function reportFilename(siteName, auditDate) {
+  const cleanName = String(siteName || 'Site').replace(/[<>:"/\\|?*\x00-\x1f]/g, '_').replace(/[. ]+$/g, '').slice(0, 100) || 'Site';
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(auditDate)) throw new Error('Invalid audit date.');
+  return `14.1-14.6_${cleanName}_onsite_pagination_audit_${auditDate}.xlsx`;
+}
+
 export function reportRows(findings) {
   if (!Array.isArray(findings.checks) || findings.checks.length !== 6) throw new Error('Exactly six checklist rows required.');
   const rows = {Checklist: [['Item No.', 'Item Name', 'Check Result', 'Findings', 'Instruction']]};
@@ -87,10 +93,9 @@ export async function buildReport(findings, outputDir, modules, preview = false)
       }
     }
   }
-  const cleanName = String(findings.site_name || 'Site').replace(/[<>:"/\\|?*\x00-\x1f]/g, '_').replace(/[. ]+$/g, '').slice(0, 100) || 'Site';
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(findings.audit_date)) throw new Error('Invalid audit date.');
+  const reportName = reportFilename(findings.site_name, findings.audit_date);
   await fs.mkdir(outputDir, {recursive: true});
-  const filename = path.join(outputDir, `${cleanName}_onsite_pagination_audit_${findings.audit_date}.xlsx`);
+  const filename = path.join(outputDir, reportName);
   try {await fs.access(filename); throw new Error(`Refusing to overwrite ${filename}`);} catch (error) {if (error.code !== 'ENOENT') throw error;}
   wb.recalculate();
   const file = await SpreadsheetFile.exportXlsx(wb);

@@ -14,6 +14,12 @@ function fixture() {
   }))};
 }
 
+test('report filename starts with the covered checklist range', async () => {
+  const {reportFilename} = await import(source);
+  assert.equal(reportFilename('Example', '2026-10-15'), '14.1-14.6_Example_onsite_pagination_audit_2026-10-15.xlsx');
+  assert.equal(reportFilename('A/B', '2026-10-15'), '14.1-14.6_A_B_onsite_pagination_audit_2026-10-15.xlsx');
+});
+
 test('clean audit produces only Checklist with all six IDs', async () => {
   assert.ok(existsSync(source), 'Missing report builder');
   const {reportRows} = await import(source);
@@ -51,7 +57,7 @@ test('preview rendering cannot turn a verified report into CLI failure', {skip: 
   await fs.writeFile(path.join(dir,'findings.json'), JSON.stringify(f));
   const result = spawnSync(process.execPath, [fileURLToPath(source),'--input',path.join(dir,'findings.json'),'--node-modules',process.env.AUDIT_NODE_MODULES,'--preview'], {encoding:'utf8',timeout:60000,windowsHide:true});
   assert.equal(result.status,0,result.stderr);
-  assert.ok(existsSync(path.join(dir,'Report CLI QA_onsite_pagination_audit_2026-10-12.xlsx')));
+  assert.ok(existsSync(path.join(dir,'14.1-14.6_Report CLI QA_onsite_pagination_audit_2026-10-12.xlsx')));
   const preview = JSON.parse(await fs.readFile(path.join(dir,'preview-status.json'),'utf8'));
   assert.ok(['rendered','rendered_with_exit_error','unavailable'].includes(preview.state));
   assert.equal(JSON.parse(await fs.readFile(path.join(dir,'report-verification.json'),'utf8')).checklistRows,6);
